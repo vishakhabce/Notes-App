@@ -3,12 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Note from "./components/Note/Note";
 import Home from "./components/Home/Home";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes"))?JSON.parse(localStorage.getItem("notes")):[]);
-  const [noteDetail,setNoteDetails] = useState([]);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes"))
+      ? JSON.parse(localStorage.getItem("notes"))
+      : []
+  );
 
   useEffect(() => {
     // Update localStorage when notes state changes
@@ -20,7 +22,16 @@ function App() {
       <Sidebar notes={notes} setNotes={setNotes} />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/notes/:id" element={<Note notes={notes} />} />
+        <Route
+          path="/notes/:id"
+          element={
+            <Note
+              notes={notes}
+              setNoteDetails={setNotes}
+              noteDetail={notes}
+            />
+          }
+        />
       </Routes>
     </div>
   );

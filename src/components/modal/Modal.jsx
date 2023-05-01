@@ -20,7 +20,8 @@ const Modal = ({ isOpen, onClose, note, setNote }) => {
         setNote([...note, {
             id: uuidv4(),
             title: title,
-            color: color
+            color: color,
+            noteDetail: []
         }])
         setTitle('')
         onClose();
