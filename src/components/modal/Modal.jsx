@@ -3,7 +3,7 @@ import './module.Modal.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const Modal = ({ isOpen, onClose, note, setNote }) => {
-    
+
     const [title, setTitle] = useState('');
 
     const colorList = [
@@ -15,8 +15,6 @@ const Modal = ({ isOpen, onClose, note, setNote }) => {
         '#6691FF'
     ]
     const [color, setColor] = useState('');
-
-    console.log(note)
 
     const handleCreate = () => {
         setNote([...note, {
@@ -34,7 +32,7 @@ const Modal = ({ isOpen, onClose, note, setNote }) => {
                 <div className='modal-text'>Create New Notes Group</div>
                 <div className='title-wrapper'>
                     <label htmlFor="title" className='modal-text'>Group Name</label>
-                    <input type="text" id="title" value={title} placeholder='Enter your group name....' onChange={(e) => setTitle(e.target.value)} />
+                    <input className='input-title' type="text" id="title" value={title} placeholder='Enter your group name....' onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div className='color-wrapper'>
                     <label htmlFor="color" className='modal-text'>Choose color</label>

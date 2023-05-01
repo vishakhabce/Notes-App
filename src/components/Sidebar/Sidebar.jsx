@@ -18,12 +18,10 @@ const Sidebar = ({ notes, setNotes }) => {
     setModalIsOpen(false);
   };
 
-  console.log(notes)
-
   return (
     <div className='Sidebar'>
        <Modal isOpen={modalIsOpen} onClose={handleModalClose} note={notes} setNote={setNotes} />
-      <div className='title'>Pocket Notes</div>
+        <Link className='title' to='/'>Pocket Notes</Link>
       <div className='create-btn' onClick={handleModalOpen}>
         <img src={plusIcon} alt="plus" />
         <span className='btn-text'>Create Notes Group</span>

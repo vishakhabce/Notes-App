@@ -3,10 +3,18 @@ import { Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Note from "./components/Note/Note";
 import Home from "./components/Home/Home";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes"))?JSON.parse(localStorage.getItem("notes")):[]);
+  const [noteDetail,setNoteDetails] = useState([]);
+
+  useEffect(() => {
+    // Update localStorage when notes state changes
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
   return (
     <div className="App">
       <Sidebar notes={notes} setNotes={setNotes} />
