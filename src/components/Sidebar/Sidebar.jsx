@@ -18,18 +18,20 @@ const Sidebar = ({ notes, setNotes }) => {
     setModalIsOpen(false);
   };
 
+  console.log(notes)
+
   return (
     <div className='Sidebar'>
-       <Modal isOpen={modalIsOpen} onClose={handleModalClose} />
+       <Modal isOpen={modalIsOpen} onClose={handleModalClose} note={notes} setNote={setNotes} />
       <div className='title'>Pocket Notes</div>
       <div className='create-btn' onClick={handleModalOpen}>
         <img src={plusIcon} alt="plus" />
         <span className='btn-text'>Create Notes Group</span>
       </div>
       <div className='group-list'>
-        {notes.map((note) => (
+        {notes?.map((note) => (
           <Link key={note.id} to={`/notes/${note.id}`}>
-            <Group title={note.title} />
+            <Group title={note.title} color ={note.color} />
           </Link>
         ))}
       </div>

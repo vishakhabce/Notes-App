@@ -1,10 +1,10 @@
 import React from 'react'
 import './module.Group.css'	
 
-const Group = ({ title }) => {
+const Group = ({ title, color }) => {
     return (
         <div className='group'>
-            <div className='icon' >
+            <div className='icon' style={{backgroundColor:color}} >
                 {
                     title.split(' ')
                         .map(word => word.charAt(0).toUpperCase())

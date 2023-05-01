@@ -14,7 +14,7 @@
   line-height: 37px;
   letter-spacing: 0.02em;
   color: #000000;
-  margin-left: -5vw;
+  margin-left: -15vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
@@ -38,7 +38,7 @@
   margin-bottom: 5px;
 }
 
-.group-list{
+.group-list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

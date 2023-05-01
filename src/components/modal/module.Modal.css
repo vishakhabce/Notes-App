@@ -82,18 +82,6 @@ input[type="text"] {
   margin: 5px;
 }
 
-.color-circle.red {
-  background-color: red;
-}
-
-.color-circle.green {
-  background-color: green;
-}
-
-.color-circle.blue {
-  background-color: blue;
-}
-
 button {
   padding: 10px 40px;
   background: #000000;
