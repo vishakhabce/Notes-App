@@ -3,21 +3,24 @@ import './module.Note.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import Group from '../group/Group';
 import { useState } from 'react';
+import fly from '../../assets/Vectorfly.png'
 
 const Note = ({ notes, setNoteDetails, noteDetail }) => {
 
   // const navigate = useNavigate();
   const { id } = useParams();
   const note = notes.find(note => note.id === id);
-
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const [inputText, setInputText] = useState('');
 
   const handleInput = () => {
+
+    if (inputText === '') return;
     const currentDate = new Date();
     const newNote = {
       text: inputText,
       time: currentDate.toLocaleTimeString(),
-      date: currentDate.toLocaleDateString(),
+      date: currentDate.toLocaleDateString('en-US', options),
     };
     const updatedNote = {
       ...note,
@@ -33,23 +36,27 @@ const Note = ({ notes, setNoteDetails, noteDetail }) => {
         <Group title={note.title} color={note.color} />
       </div>
       <div className='message-list'>
-      {note.noteDetail.map((note, index) => (
-          <div key={index}>
-            <p>{note.text}</p>
-            <p>{note.time}</p>
-            <p>{note.date}</p>
+        {note.noteDetail.map((note, index) => (
+          <div className='note-value' key={index}>
+            <div className='time'>
+              <p>{note.time}</p>
+              <p>{note.date}</p>
+            </div>
+            <div className='note-text'>{note.text}</div>
           </div>
         ))}
       </div>
       <div className='msg-container'>
-      <textarea
+        <textarea
           className='msg-input'
           type='text'
           placeholder='Enter your text here...........'
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
         />
-        <button className='submit-btn' onClick={handleInput}>Submit</button>
+        <div className='submit-btn' onClick={handleInput}>
+          <img src={fly} alt="fly" />
+        </div>
       </div>
     </div>
   )
