@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import { useState, useEffect } from "react";
 
 function App() {
+  // Get notes from localStorage or set empty array
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("notes"))
       ? JSON.parse(localStorage.getItem("notes"))
@@ -19,17 +20,15 @@ function App() {
 
   return (
     <div className="App">
+      {/* Sidebar component */}
       <Sidebar notes={notes} setNotes={setNotes} />
+      {/* Routes */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route
           path="/notes/:id"
           element={
-            <Note
-              notes={notes}
-              setNoteDetails={setNotes}
-              noteDetail={notes}
-            />
+            <Note notes={notes} setNoteDetails={setNotes} noteDetail={notes} />
           }
         />
       </Routes>
