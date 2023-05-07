@@ -98,3 +98,19 @@
   bottom: 30px;
   cursor: pointer;
 }
+
+.back-btn{
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* CSS styles for mobile devices */
+  .note-container> div {
+   width: 100%;
+  }
+  .back-btn{
+    display: flex;
+  }
+}

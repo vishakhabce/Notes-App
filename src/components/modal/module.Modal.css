@@ -92,3 +92,45 @@ button {
   width: fit-content;
   margin-left: 80%;
 }
+@media only screen and (max-width: 768px) {
+  /* CSS styles for mobile devices */
+  .modal-content {
+    width: 90%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .modal-text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160.19%;
+
+    letter-spacing: 0.035em;
+
+    color: #000000;
+    margin-right: 20px;
+    width: fit-content;
+  }
+  .input-title {
+    width: 100%;
+    padding: 10px 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    background: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 22px;
+    outline: none;
+  }
+  .color-chooser {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+  button{
+    margin-left: 60%;
+  }
+}

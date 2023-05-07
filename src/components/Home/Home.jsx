@@ -2,8 +2,15 @@ import React from 'react'
 import './module.Home.css'
 import homeicon from '../../assets/home.png'
 import lock from '../../assets/Vectorlock.png'
+import { useEffect } from 'react';
 
 const Home = () => {
+
+  useEffect(() => {
+      const sidebar = document.querySelector('.Sidebar');
+      sidebar.style.display = 'flex';
+  }, [])
+  
   return (
     <div className='home'>
       <img src={homeicon} alt="home" />

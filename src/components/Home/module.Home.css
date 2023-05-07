@@ -46,3 +46,10 @@
 
   color: #292929;
 }
+
+@media only screen and (max-width: 768px) {
+  /* CSS styles for mobile devices */
+  .home {
+   display: none;
+  }
+}

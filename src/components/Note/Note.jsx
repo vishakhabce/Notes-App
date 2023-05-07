@@ -2,8 +2,9 @@ import React from 'react'
 import './module.Note.css'
 import { useNavigate, useParams } from 'react-router-dom';
 import Group from '../group/Group';
-import { useState } from 'react';
-import fly from '../../assets/Vectorfly.png'
+import { useState,useEffect } from 'react';
+import fly from '../../assets/Vectorfly.png';
+import back from '../../assets/Vectorback.png';
 
 const Note = ({ notes, setNoteDetails, noteDetail }) => {
 
@@ -12,6 +13,17 @@ const Note = ({ notes, setNoteDetails, noteDetail }) => {
   const note = notes.find(note => note.id === id);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const [inputText, setInputText] = useState('');
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    if (mediaQuery.matches) {
+      const sidebar = document.querySelector('.Sidebar');
+      sidebar.style.display = 'none';
+    } else {
+      const sidebar = document.querySelector('.Sidebar');
+      sidebar.style.display = 'flex';
+    }
+  }, [])
 
   const handleInput = () => {
 
@@ -33,6 +45,9 @@ const Note = ({ notes, setNoteDetails, noteDetail }) => {
   return (
     <div className='note-container'>
       <div className='head'>
+        <div className='back-btn' onClick={() => window.history.back()}>
+          <img src={back} alt="back" />
+        </div>
         <Group title={note.title} color={note.color} />
       </div>
       <div className='message-list'>
